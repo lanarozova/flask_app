@@ -1,0 +1,31 @@
+{% extends "_base.html" %}
+
+{% block title %}
+    Registration
+{% endblock %}
+
+{% block page_content %}
+
+<section>
+    <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-6">
+        <div class="card rounded-3">
+          <img src="https://i.pinimg.com/originals/e2/6e/fc/e26efc26bed6133d3258b1c1308d1ea2.jpg"
+            class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
+            alt="Sample photo">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">User Info</h3>
+            <p>User name: {{name}}</p>
+            <p>User email: {{email}}</p>
+
+            <button type="button" onclick="location.href='/accounts/login';" value="Logout" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg mb-1">Log Out</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    </div>
+</section>
+
+{% endblock %}
