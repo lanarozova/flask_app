@@ -15,9 +15,15 @@
             class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
             alt="Sample photo">
           <div class="card-body p-4 p-md-5">
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Log in</h3>
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Sign in</h3>
 
             <form class="px-md-2" method="post">
+
+              {% if error %}
+              <div>
+                  <p style="color:red">{{error}}</p>
+              </div>
+              {% endif %}
 
               <div data-mdb-input-init class="form-outline mb-4">
                 <input type="text" name="email" id="form3Example1q" class="form-control" required="required"/>
@@ -29,7 +35,7 @@
                     <label class="form-label" for="form3Example1q">Password</label>
               </div>
 
-              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg mb-1">Login</button>
+              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg mb-1">Sign In</button>
 
               <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>
               <p>Don't have an account? <a href="/accounts/registration" class="link-info">Register here</a></p>

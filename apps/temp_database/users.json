@@ -1,0 +1,19 @@
+{
+    "users": {
+        "1": {
+            "name": "Emily",
+            "email": "emily@gm.co",
+            "password": "emilY38@ng0"
+        },
+        "2": {
+            "name": "Emily",
+            "email": "emily2@gm.co",
+            "password": "emilY38@ng0"
+        },
+        "3": {
+            "name": "Lana",
+            "email": "lanalis@gm.co",
+            "password": "helloWor1d!"
+        }
+    }
+}
