@@ -1,5 +1,5 @@
 from os import path
-from apps.accounts.exceptions import UserAlreadyRegisteredError, UserNotFoundError
+from apps.main.exceptions import UserAlreadyRegisteredError, UserNotFoundError
 import re
 import json
 
@@ -41,7 +41,7 @@ def update_users_db(user_id, new_user_dict):
 
 def register_user(user_dict):
     if is_user_registered(user_dict):
-        raise UserAlreadyRegisteredError
+        raise UserAlreadyRegisteredError("User with such email is already registered.")
     else:
         user_id = generate_id()
         update_users_db(user_id, user_dict)

@@ -14,6 +14,16 @@
             "name": "Lana",
             "email": "lanalis@gm.co",
             "password": "helloWor1d!"
+        },
+        "4": {
+            "name": "Svitlana R",
+            "email": "sr@gm.co",
+            "password": "passWord!"
+        },
+        "5": {
+            "name": "Svitlana R",
+            "email": "lana@gm.co",
+            "password": "passWord!"
         }
     }
 }

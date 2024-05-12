@@ -13,8 +13,8 @@
 <!--    <h3>Don't wait! Sign up to start training your dog today and make both of your lives happy and exciting!</h3>-->
 <!--    <img src="https://www.calgaryhumane.ca/wp-content/uploads/2024/02/Frankie_2000012150_20230910_112441-scaled.jpg">-->
 
-<!--    <button><a href="/accounts/registration">Sign up</a> </button>-->
-<!--    <button><a href="/accounts/login">Sign in</a> </button>-->
+<!--    <button><a href="/main/registration">Sign up</a> </button>-->
+<!--    <button><a href="/main/login">Sign in</a> </button>-->
 <!--</section>-->
 
 <section class="h-100 h-custom" style="background-color: #8fc4b7;">
@@ -35,9 +35,9 @@
               </div>
 
               <div class="card-body p-4 p-md-5">
-                <button type="button" onclick="location.href='/accounts/registration';" value="Registration" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg mb-1">Sign Up</button>
+                <button type="button" onclick="location.href='{{ url_for('/.registration') }}';" value="Registration" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg mb-1">Sign Up</button>
 
-                <button type="button" style="float:right" onclick="location.href='/accounts/login';" value="Login" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg mb-1">Sign In</button>
+                <button type="button" style="float:right" onclick="location.href='{{ url_for('/.login') }}';" value="Login" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg mb-1">Sign In</button>
               </div>
 
           </div>

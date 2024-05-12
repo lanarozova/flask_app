@@ -10,6 +10,11 @@
     Flask Application
 {% endblock %}
 
+
+{% block navbar %}
+    {%  include 'nav/top_nav_bar.html' %}
+{% endblock %}
+
 {% block content %}
     <div class="container">
         {% block page_content %}
