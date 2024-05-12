@@ -21,6 +21,8 @@ class Registration(MethodView):
                 user_dict = {"name": form.name.data, "email": form.email.data, "password": form.password.data}
                 register_user(user_dict)
                 return render_template("main/registration_success.html")
+            else:
+                return render_template("main/registration.html", form=form)
             # else:
             #     return render_template("main/registration.html", form=form)
         except UserAlreadyRegisteredError as error:
@@ -43,7 +45,7 @@ class Login(MethodView):
                     name=user_info["name"],
                     email=user_info["email"])
             else:
-                render_template("main/login.html", form=form)
+                return render_template("main/login.html", form=form)
         except UserNotFoundError as error:
             return render_template("main/login.html", form=form, error=error)
 

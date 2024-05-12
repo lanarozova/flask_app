@@ -1,7 +1,8 @@
 {% extends "_base.html" %}
+{% from "errors/field_error.html" import render_errors %}
 
 {% block title %}
-    Registration
+    Sign in
 {% endblock %}
 
 {% block page_content %}
@@ -32,6 +33,7 @@
 <!--                <label class="form-label" for="form3Example1q">Email</label>-->
                   {{ form.email(class="form-control")}}
                   {{ form.email.label(class="form-label") }}
+                  {{ render_errors(form.email) }}
               </div>
 
               <div data-mdb-input-init class="form-outline mb-4">
@@ -39,6 +41,7 @@
 <!--                    <label class="form-label" for="form3Example1q">Password</label>-->
                   {{ form.password(class="form-control")}}
                   {{ form.password.label(class="form-label") }}
+                  {{ render_errors(form.password) }}
               </div>
 
               <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg mb-1">Sign In</button>
