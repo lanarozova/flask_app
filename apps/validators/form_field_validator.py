@@ -7,28 +7,33 @@ def validate_email(email: str) -> str:
     if match.group():
         return email.lower()
     else:
-        raise EmailValidationError
+        raise EmailValidationError("Incorrect email format.")
 
 
 def validate_name(name: str) -> str:
-    if re.match(r"[a-zA-Z]+[a-zA-Z-]+[a-zA-Z-]", name):
-        name = name.split()
-        if len(name) == 2:
+    pattern = r"[a-zA-Z]+[a-zA-Z-]"
+    name = name.split()
+    if len(name) == 2:
+        if re.match(pattern, name[0]) and re.match(pattern, name[1]):
             return f"{name[0].lower().capitalize()} {name[1].lower().capitalize()}"
-        else:
-            return name[0].lower().capitalize()
     else:
-        raise NameValidationError
+        if re.match(pattern, name[0]):
+            return name[0].lower().capitalize()
+    raise NameValidationError("Name must consist of at least 2 latin letters and can include hyphens or spaces.")
 
 
 def validate_password_format(password):
-    if not re.fullmatch(r'[A-Za-z0-9@!#$%^&*()_\-+=]{8,}', password):
+    pw_validated = (len(password) > 7
+                    and re.match(r'[A-Za-z]', password)
+                    and re.search(r'[0-9]', password)
+                    and re.search(r'[@!#$%^&*()_\-+=]', password))
+
+    if not pw_validated:
         raise PasswordInvalidFormatError(
             "Password must contain at least eight characters, "
-            "at least one uppercase letter, one lowercase letter, one number and one special character:"
+            "at least one uppercase letter, one lowercase letter, one number and one special character."
         )
-    else:
-        return password
+    return password
 
 
 def check_passwords_matching(password_1, password_2):
@@ -38,13 +43,4 @@ def check_passwords_matching(password_1, password_2):
         raise PasswordsDontMatchError("Passwords don't match.")
 
 
-if __name__ == "__main__":
-    print(validate_email("svitlaroza@gm.co"))
-    print(validate_name("George-njrg"))
-    print(validate_password_format("1701L!an"))
-
-
-
-
-
-
+validate_password_format("Bobo1234)")
