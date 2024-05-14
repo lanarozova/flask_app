@@ -3,6 +3,8 @@ from flask_bootstrap import Bootstrap
 
 from apps.settings import config
 from apps.main import main
+from apps.db import db, migrate
+from apps.main.model import Role, UserModel
 
 
 def create_app(config_name: str = "default") -> Flask:
@@ -16,5 +18,15 @@ def create_app(config_name: str = "default") -> Flask:
     app.register_blueprint(main)
 
     Bootstrap(app)
+
+    # sqlalchemy
+    db.init_app(app)
+    migrate.init_app(app, db)
+    app.db = db
+
+    # add variables to context
+    # @app.shell_context_processors
+    # def make_shell_context():
+    #     return {"db": db, "UserModel": UserModel, "Role": Role, "migrate": migrate}
 
     return app

@@ -1,5 +1,3 @@
-from apps.validators.validators import validate_name, validate_email, validate_password_format
-
 from flask_wtf import FlaskForm
 from wtforms import StringField, EmailField, PasswordField
 from wtforms.validators import DataRequired, Length, EqualTo, Email
