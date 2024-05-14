@@ -28,20 +28,16 @@ class UserModel(db.Model):
     @password.setter
     def password(self, password: str):
         print("setting pw")
-        password = validate_password_format(password)
-
-        self._hashed_password = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
+        validate_password_format(password)
+        hashed_password = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
+        self._hashed_password = hashed_password.decode('utf-8')
 
     def check_password(self, password: str) -> bool:
-        return bcrypt.checkpw(password.encode("utf-8"), self._hashed_password)
+        return bcrypt.checkpw(password.encode("utf-8"), self._hashed_password.encode("utf-8"))
 
     @validates("name")
     def validate_name(self, key, name):
         return validate_name(name)
-
-    # @validates("password")
-    # def validate_password(self, key, password):
-    #     return validate_password_format(password)
 
     @validates("email")
     def validate_email(self, key, email):

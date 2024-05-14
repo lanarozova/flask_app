@@ -23,10 +23,10 @@ def validate_name(name: str) -> str:
 
 
 def validate_password_format(password):
-    pw_validated = (len(password) < 9
-                    and re.match(r'[A-Z]', password)
-                    and re.match(r'[0-9]]', password)
-                    and re.match(r'[@!#$%^&*()_\-+=]', password))
+    pw_validated = (len(password) > 7
+                    and re.match(r'[A-Za-z]', password)
+                    and re.search(r'[0-9]', password)
+                    and re.search(r'[@!#$%^&*()_\-+=]', password))
 
     if not pw_validated:
         raise PasswordInvalidFormatError(
@@ -41,3 +41,6 @@ def check_passwords_matching(password_1, password_2):
         return password_1
     else:
         raise PasswordsDontMatchError("Passwords don't match.")
+
+
+validate_password_format("Bobo1234)")
